@@ -51,7 +51,6 @@ namespace CafeAUnEuro
 				if (alertResult)
 				{
 					Coffees= await CoffeeService.GetCoffeesAsync();
-					//Coffees = await CoffeeService.GetCoffeesDataAsync();
 				}
 			}
 			finally { IsLoading = false; }

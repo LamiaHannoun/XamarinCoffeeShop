@@ -70,13 +70,6 @@ namespace CafeAUnEuro.Droid
 			var latitude = item.geometry.coordinates[1].ToString(CultureInfo.InvariantCulture);
 			var coffeeName = item.fields.nom_du_cafe;
 
-			//var geoUri = Android.Net.Uri.Parse($"geo:{latitude},{longitude}");
-			//var mapIntent = new Intent(Intent.ActionView, geoUri);
-			//StartActivity(mapIntent);
-
-			//var mapUrl = $"http://www.openstreetmap.org/lat={latitude}&lon={longitude}&zoom=17&layers=M";
-			//var intent = new Intent(Intent.ActionView, Android.Net.Uri.Parse(mapUrl));
-			//StartActivity(intent);
 
 			var intent = new Intent(this, typeof(CoffeeMapActivity));
 			intent.PutExtra("lat", latitude);

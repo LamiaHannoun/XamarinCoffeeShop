@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using GalaSoft.MvvmLight.Ioc;
 using UIKit;
 
 namespace CafeAUnEuro.iOS
@@ -20,6 +21,10 @@ namespace CafeAUnEuro.iOS
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
+			SimpleIoc.Default.Register<ICoffeeService, CoffeeService>();
+			SimpleIoc.Default.Register<IAlertService, AlertService>();
+			SimpleIoc.Default.Register<HomePageViewModel>();
+			SimpleIoc.Default.Register<CoffeeListViewModel>();
 
 			return true;
 		}

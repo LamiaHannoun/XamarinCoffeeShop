@@ -12,7 +12,7 @@ namespace CafeAUnEuro
 {
 	public class CoffeeService : ICoffeeService
 	{
-		private const string url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=liste-des-cafes-a-un-euro&facet=arrondissement";
+		private const string url = "https://opendata.paris.fr/api/records/1.0/search/?dataset=liste-des-cafes-a-un-euro&rows=30&facet=arrondissement";
 
 		public async Task<List<string>> GetCoffeesDataAsync()
 		{

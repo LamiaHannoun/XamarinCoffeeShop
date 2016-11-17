@@ -4,11 +4,11 @@ using UIKit;
 
 namespace CafeAUnEuro.iOS
 {
-	public partial class ViewController : UIViewController
+	public partial class MainViewController : UIViewController
 	{
 		int count = 1;
 
-		public ViewController(IntPtr handle) : base(handle)
+		public MainViewController(IntPtr handle) : base(handle)
 		{
 		}
 
@@ -18,11 +18,7 @@ namespace CafeAUnEuro.iOS
 
 			// Perform any additional setup after loading the view, typically from a nib.
 			Button.AccessibilityIdentifier = "myButton";
-			Button.TouchUpInside += delegate
-			{
-				var title = string.Format("{0} clicks!", count++);
-				Button.SetTitle(title, UIControlState.Normal);
-			};
+
 		}
 
 		public override void DidReceiveMemoryWarning()
