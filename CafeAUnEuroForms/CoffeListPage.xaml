@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		IsBusy="{Binding IsLoading}"
+		x:Class="CafeAUnEuroForms.CoffeListPage">
+	
+	<ContentPage.Content>
+		<Grid>
+			<ListView 
+					ItemsSource="{Binding Coffees}"
+					ItemSelected="OnItemSelected">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding fields.nom_du_cafe}"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<ActivityIndicator 
+					IsVisible="{Binding IsLoading}"
+					IsRunning="{Binding IsLoading}"
+					HeightRequest="50" 
+					WidthRequest="50" 
+					HorizontalOptions="Center"
+				    VerticalOptions="Center"/>
+			</Grid>
+		</ContentPage.Content>
+</ContentPage>
