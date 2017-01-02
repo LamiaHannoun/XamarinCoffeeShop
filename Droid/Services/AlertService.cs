@@ -3,9 +3,8 @@ using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using CafeAUnEuro;
 
-namespace CafeAUnEuroForms.Droid
+namespace CafeAUnEuro.Droid
 {
 	public class AlertService : IAlertService
 	{

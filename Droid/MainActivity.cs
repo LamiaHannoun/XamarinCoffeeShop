@@ -1,30 +1,54 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
-using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
+﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using Xamarin.Forms;
+using System.Collections.Generic;
+using Android.Content;
+using System;
+using GalaSoft.MvvmLight.Ioc;
 
-namespace CafeAUnEuroForms.Droid
+namespace CafeAUnEuro.Droid
 {
-	[Activity(Label = "CafeAUnEuroForms.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+	[Activity(Label = "@string/app_name", MainLauncher = true, Icon = "@mipmap/icon")]
+	public class MainActivity : Activity,IHomeView
 	{
-		protected override void OnCreate(Bundle bundle)
+		private Button loadCoffeesBtn;
+		private HomePageViewModel viewModel;
+
+		protected override void OnCreate(Bundle savedInstanceState)
 		{
-			TabLayoutResource = Resource.Layout.Tabbar;
-			ToolbarResource = Resource.Layout.Toolbar;
+			base.OnCreate(savedInstanceState);
+			viewModel = SimpleIoc.Default.GetInstance<HomePageViewModel>();
+			viewModel.Init(this);
 
-			base.OnCreate(bundle);
+			SetContentView(Resource.Layout.Main);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
-			Xamarin.FormsMaps.Init(this, bundle);
-
-			LoadApplication(new App());
+		    loadCoffeesBtn = FindViewById<Button>(Resource.Id.myButton);
+			loadCoffeesBtn.Click += onClickButton;
 		}
+
+		private void onClickButton(object sender,EventArgs e)
+		{
+			viewModel?.GoToListCommand.Execute(null);
+
+		}
+
+		public void GoToList()
+		{
+			Intent intent = new Intent(this, typeof(CoffeeListActivity));
+			StartActivity(intent);
+		}
+
+		protected override void OnDestroy()
+		{
+			if (loadCoffeesBtn != null)
+			{
+				loadCoffeesBtn.Click -= onClickButton;
+			}
+			viewModel?.Cleanup();
+
+			base.OnDestroy();
+		}
+
 	}
 }
+

@@ -4,7 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using GalaSoft.MvvmLight.Ioc;
 
-namespace CafeAUnEuroForms.Droid
+namespace CafeAUnEuro.Droid
 {
 	[Application]
 	public class AndroidApplication : Application,Application.IActivityLifecycleCallbacks

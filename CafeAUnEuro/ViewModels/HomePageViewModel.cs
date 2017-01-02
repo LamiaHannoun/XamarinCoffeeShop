@@ -12,7 +12,7 @@ namespace CafeAUnEuro
 	public class HomePageViewModel:ViewModelBase
 	{
 		public IHomeView HomeView { get; set; }
-		public RelayCommand GoToListCommand { get; }
+		public RelayCommand GoToListCommand;
 
 		public HomePageViewModel()
 		{

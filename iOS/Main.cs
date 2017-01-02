@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace CafeAUnEuroForms.iOS
+namespace CafeAUnEuro.iOS
 {
 	public class Application
 	{
